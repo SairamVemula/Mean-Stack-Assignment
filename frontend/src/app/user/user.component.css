@@ -1,0 +1,12 @@
+div.inside {
+  display: flex;
+  justify-content: space-evenly;
+}
+div.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #505050; */
+}

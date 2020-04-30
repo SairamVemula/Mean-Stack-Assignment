@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "resume_jwtPrivateKey",
+  "mongodbSeverLink": "resume_mongodbSeverLink"
+}

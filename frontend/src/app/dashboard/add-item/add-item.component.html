@@ -1,0 +1,213 @@
+<!-- <!-- <p>view works!</p> -->
+<form [formGroup]="form">
+  <div class="content">
+    <div for="profile_heading"><h4>Profile Heading</h4></div>
+    <input
+      type="text"
+      name="profile_heading"
+      id="profile_heading"
+      [readonly]="readOnly"
+      [(ngModel)]="list.profile_heading"
+      style="width: 90vw;"
+      formControlName="profile_heading"
+    />
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      form.controls.profile_heading.errors &&
+      form.controls.profile_heading.touched &&
+      form.controls.profile_heading.invalid
+    "
+  >
+    Enter Min 30 Chars.
+  </div>
+  <div class="content">
+    <div for="profile_description"><h4>Profile Description</h4></div>
+    <textarea
+      type="text"
+      name="profile_description"
+      id="profile_description"
+      [readonly]="readOnly"
+      [(ngModel)]="list.profile_description"
+      style="overflow: hidden;"
+      formControlName="profile_description"
+    ></textarea>
+  </div>
+  <div
+    class="alert alert-danger"
+    *ngIf="
+      form.controls.profile_description.errors &&
+      form.controls.profile_description.touched &&
+      form.controls.profile_description.invalid
+    "
+  >
+    Enter Min 200 Chars.
+  </div>
+  <div class="details d-flex justify-content-between flex-wrap">
+    <div class="content">
+      <div for="name"><h4>Name</h4></div>
+      <input
+        type="name"
+        name="name"
+        id="name"
+        [readonly]="readOnly"
+        [(ngModel)]="list.name"
+        formControlName="name"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="form.controls.name.errors?.pattern"
+      >
+        Enter Valid Name.
+      </div>
+    </div>
+    <div class="content">
+      <div for="email"><h4>Email Address</h4></div>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        [readonly]="readOnly"
+        [(ngModel)]="list.email"
+        [value]="list.email"
+        formControlName="email"
+      />
+      <div class="alert alert-danger" *ngIf="form.controls.email.errors?.email">
+        Enter Valid Email.
+      </div>
+    </div>
+    <div class="content">
+      <div for="contact_no"><h4>Mobile No</h4></div>
+      <input
+        type="text"
+        name="contact_no"
+        id="contact_no"
+        [readonly]="readOnly"
+        [(ngModel)]="list.contact_no"
+        formControlName="contact_no"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          form.controls.contact_no.errors &&
+          form.controls.contact_no.touched &&
+          form.controls.contact_no.invalid
+        "
+      >
+        Enter valid Contact No
+      </div>
+    </div>
+    <div class="content">
+      <div for="website"><h4>Website</h4></div>
+      <input
+        type="text"
+        name="website"
+        id="website"
+        [readonly]="readOnly"
+        [(ngModel)]="list.website"
+        formControlName="website"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="form.controls.website.errors?.pattern"
+      >
+        Enter valid Website
+      </div>
+    </div>
+  </div>
+
+  <h4>Skills</h4>
+
+  <div class="skills d-flex justify-content-start flex-wrap">
+    <div *ngFor="let skill of list.skills; let s = index" class="special">
+      <input
+        type="text"
+        [value]="skill"
+        [readonly]="readOnly"
+        #sval
+        (focusout)="inputEnterSkill(s, sval.value)"
+      />
+
+      <div (click)="onClickCrossOfSkill(s)" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+      </div>
+    </div>
+    <div (click)="onClickPlusOfSkill()" class="icons">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        <path d="M0 0h24v24H0z" fill="none" />
+      </svg>
+    </div>
+  </div>
+
+  <h4>Education</h4>
+
+  <div class="educations d-flex justify-content-start flex-wrap">
+    <div
+      *ngFor="let education of list.education; let e = index"
+      class="special"
+    >
+      <input
+        type="text"
+        [value]="education"
+        [readonly]="readOnly"
+        #eval
+        (focusout)="inputEnterEdu(e, eval.value)"
+      />
+      <div (click)="onClickCrossOfEdu(e)" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+      </div>
+    </div>
+    <div (click)="onClickPlusOfEdu()" class="icons">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+        <path d="M0 0h24v24H0z" fill="none" />
+      </svg>
+    </div>
+  </div>
+  <div
+    *ngIf="editVisiblity()"
+    class="d-flex justify-content-around flex-wrap"
+    style="margin: 10px;"
+  >
+    <button
+      type="submit"
+      (click)="onButton()"
+      class="btn btn-primary"
+      [disabled]="!form.valid"
+    >
+      {{ button }}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,8 @@
+<div>
+  <div class="add">
+    <button class="btn btn-primary" routerLink="/Dashboard/Add">Add</button>
+  </div>
+  <div *ngIf="lists !== undefined" class="lists">
+    <app-dash-item *ngFor="let list of lists" [list]="list"></app-dash-item>
+  </div>
+</div>

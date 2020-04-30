@@ -1,0 +1,40 @@
+<!-- <p>login works!</p> -->
+<div class="icon">
+  <img src="../../../assets/images/default-avatar.png" alt="" />
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <div class="form-group">
+    <input
+      type="email"
+      class="form-control"
+      placeholder="Email"
+      id="email"
+      formControlName="email"
+    />
+    <div *ngIf="form.controls.email.errors?.pattern" class="error">
+      Enter an Valid Email
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      type="password"
+      class="form-control"
+      placeholder="Password"
+      id="pwd"
+      formControlName="password"
+    />
+  </div>
+  <div class="login">
+    <button
+      type="submit"
+      class="btn btn-primary login"
+      [disabled]="!form.valid"
+    >
+      Login
+    </button>
+  </div>
+</form>
+<div class="other">
+  <a routerLink="/Register">Register</a>
+  <a routerLink="/ForgetPassword">Forget</a>
+</div>

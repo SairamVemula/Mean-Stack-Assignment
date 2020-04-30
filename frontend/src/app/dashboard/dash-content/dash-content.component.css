@@ -1,0 +1,15 @@
+div.add {
+  display: flex;
+  padding: 10px;
+  justify-content: flex-end;
+}
+nav button {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+div.lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
