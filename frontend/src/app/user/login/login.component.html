@@ -22,6 +22,7 @@
       placeholder="Password"
       id="pwd"
       formControlName="password"
+      (focus)="loginStatus = false"
     />
   </div>
   <div class="login">
@@ -32,6 +33,12 @@
     >
       Login
     </button>
+  </div>
+  <div
+    *ngIf="loginStatus"
+    style="color: red; text-align: center; padding-top: 10px;"
+  >
+    {{ errMsg }}
   </div>
 </form>
 <div class="other">
