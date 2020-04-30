@@ -9,8 +9,8 @@ const cors = require("cors");
 const bearerToken = require("express-bearer-token");
 const app = express();
 
-if (!config.get("mongodbSeverLink")) {
-  console.error("FATAL ERROR: mongodbSeverLink is not defined");
+if (!config.get("mongodbServerLink")) {
+  console.error("FATAL ERROR: mongodbServerLink is not defined");
   process.exit(1);
 }
 const mongoURI = config.get("mongodbSeverLink");

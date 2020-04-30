@@ -1,4 +1,4 @@
 {
   "jwtPrivateKey": "",
-  "mongodbSeverLink": ""
+  "mongodbServerLink": ""
 }
