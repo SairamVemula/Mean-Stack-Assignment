@@ -13,7 +13,7 @@ if (!config.get("mongodbServerLink")) {
   console.error("FATAL ERROR: mongodbServerLink is not defined");
   process.exit(1);
 }
-const mongoURI = config.get("mongodbSeverLink");
+const mongoURI = config.get("mongodbServerLink");
 
 if (!config.get("jwtPrivateKey")) {
   console.error("FATAL ERROR: jwtPrivateKey is not defined");
